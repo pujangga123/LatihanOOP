@@ -13,7 +13,9 @@ public class DatabaseTest {
     public static Connection connect() {
         try {
             Class.forName(DBDRIVER);
-            return DriverManager.getConnection(DBCONNECTION,DBUSER,DBPASS);
+            Connection conn = DriverManager.getConnection(DBCONNECTION,DBUSER,DBPASS);
+            conn.setAutoCommit(true);
+            return conn;
         }catch(Exception e) {
             return null;
         }
