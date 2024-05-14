@@ -50,6 +50,7 @@ public class Mahasiswa {
                     this.lahirTanggal = rs.getDate("lahirTanggal");
                     this.lahirTempat = rs.getString("lahirTempat");
                     this.usersId = rs.getString("usersId");
+                    this.status = rs.getString("status");
                     this.ipk = rs.getDouble("ipk");
                 }
 
@@ -69,8 +70,8 @@ public class Mahasiswa {
 
             if (!connection.isClosed()) {
                 // prepare select statement
-                String sql = "INSERT INTO mahasiswa (nim,nama,alamat, angkatan, lahirTanggal, lahirTempat, usersId, ipk) "
-                        + "values (?,?,?,?,?,?,?,?)";
+                String sql = "INSERT INTO mahasiswa (nim,nama,alamat, angkatan, lahirTanggal, lahirTempat, status, usersId, ipk) "
+                        + "values (?,?,?,?,?,?,?,?,0)";
                 PreparedStatement st = connection.prepareStatement(sql);
                 st.setString(1, this.nim);
                 st.setString(2, this.nama);
@@ -109,6 +110,7 @@ public class Mahasiswa {
                 st.setDate(4, this.lahirTanggal);
                 st.setString(5, this.lahirTempat);
                 st.setString(6, this.status);
+
                 st.setString(7, this.nim);
 
                 st.executeUpdate();
