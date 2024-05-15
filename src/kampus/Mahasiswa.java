@@ -12,7 +12,7 @@ public class Mahasiswa {
     public String lahirTempat;
     public String status;
     public String usersId;
-    private Double ipk;
+    protected Double ipk;
     private String errMsg = "";
 
     public Mahasiswa() {

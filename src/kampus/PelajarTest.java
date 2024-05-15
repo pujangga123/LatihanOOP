@@ -8,36 +8,37 @@ package kampus;
  *
  * @author Lenovo
  */
-public class MahasiswaTest {
+public class PelajarTest {
     public static void main(String[] args) {
-        Mahasiswa mahasiswa = new Mahasiswa();
+        Pelajar pelajar = new Pelajar();
         
         // test TAMBAH
-        mahasiswa.nim = "111";
-        mahasiswa.nama = "HENDRA";
-        mahasiswa.alamat = "JALAN ABC";
-        if(mahasiswa.tambah()) {
+        pelajar.nim = "222";
+        pelajar.nama = "GUNAWAN";
+        pelajar.alamat = "JALAN ABC";
+        if(pelajar.tambah()) {
             System.out.println("TAMBAH OK");
         } else {
-            System.out.println(mahasiswa.getErrMsg());
+            System.out.println(pelajar.getErrMsg());
         }
         
         // test BACA
-        mahasiswa.baca("111");
-        if(!mahasiswa.nim.isEmpty()) {
+        pelajar.baca("222");
+        if(!pelajar.nim.isEmpty()) {
             System.out.println("BACA OK");
-            System.out.println(mahasiswa.nim+" "+mahasiswa.nama+" "+mahasiswa.status);
+            System.out.println(pelajar.nim+" "+pelajar.nama+" "+pelajar.status);
+            System.out.println("Score" + pelajar.getScore());
         } else {
             System.out.println("BACA GAGAL");
         }
         
         // test UPDATE
-        mahasiswa.nama = "HENDRA UTOMO";
-        mahasiswa.alamat = "JALAN LEUWIPANJANG";
-        if(mahasiswa.update()) {
+        pelajar.nama = "GUNAWAN UTOMO";
+        pelajar.alamat = "JALAN LEUWIPANJANG";
+        if(pelajar.update()) {
             System.out.println("UPDATE OK");
         } else {
-            System.out.println(mahasiswa.getErrMsg());
+            System.out.println(pelajar.getErrMsg());
         }
     }
 }
