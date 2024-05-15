@@ -8,10 +8,20 @@ package kampus;
  *
  * @author En Tay
  */
-public class Pelajar extends Mahasiswa {
+public class Karyawan extends Mahasiswa {
     
-    public Double getScore() {
-        return this.getIpk() * 10 / 4;
+    private int score;
+    
+    public int getScore() {
+        return this.score;
     }
+    
+    public void rekalkulasiScore() {
+       this.score = (int) Math.round(super.getIpk() * 100 / 4);
+    }
+    
+    
+    
+    
     
 }

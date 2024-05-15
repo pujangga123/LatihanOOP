@@ -8,9 +8,9 @@ package kampus;
  *
  * @author Lenovo
  */
-public class PelajarTest {
+public class KaryawanTest {
     public static void main(String[] args) {
-        Pelajar pelajar = new Pelajar();
+        Karyawan pelajar = new Karyawan();
         
         // test TAMBAH
         pelajar.nim = "222";
@@ -27,7 +27,10 @@ public class PelajarTest {
         if(!pelajar.nim.isEmpty()) {
             System.out.println("BACA OK");
             System.out.println(pelajar.nim+" "+pelajar.nama+" "+pelajar.status);
-            System.out.println("Score" + pelajar.getScore());
+            System.out.println("Rekalkulasi");
+            pelajar.rekalkulasiIpk();
+            pelajar.rekalkulasiScore();
+            System.out.println("Score " + pelajar.getScore());
         } else {
             System.out.println("BACA GAGAL");
         }
