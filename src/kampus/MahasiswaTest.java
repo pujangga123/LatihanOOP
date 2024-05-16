@@ -27,6 +27,8 @@ public class MahasiswaTest {
         if(!mahasiswa.nim.isEmpty()) {
             System.out.println("BACA OK");
             System.out.println(mahasiswa.nim+" "+mahasiswa.nama+" "+mahasiswa.status);
+            mahasiswa.rekalkulasiIpk();
+            System.out.println("IPK: "+mahasiswa.getIpk());
         } else {
             System.out.println("BACA GAGAL");
         }
