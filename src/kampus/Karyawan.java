@@ -20,8 +20,8 @@ public class Karyawan extends Mahasiswa {
        this.score = (int) Math.round(super.getIpk() * 100 / 4);
     }
     
-    
-    
-    
+    public void rekalkulasiIpk() {
+        //fdlksjflskdjlfksjlkj
+    }
     
 }

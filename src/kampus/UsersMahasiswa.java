@@ -26,7 +26,7 @@ public class UsersMahasiswa extends Users {
 
             if (!connection.isClosed()) {
                 // 1. sesuaikan string SQL
-                String sql = "SELECT * FROM users where id=?";
+                String sql = "SELECT nim, mahasiswa.nama, users.tipe, users.status FROM users inner join mahasiswa on nim=id where id=?";
                 PreparedStatement st = connection.prepareStatement(sql);
 
                 // 2. sesuaikan parameter
@@ -35,7 +35,7 @@ public class UsersMahasiswa extends Users {
 
                 if (rs.next()) {
                     //3. isi property dengan data yang dibaca dari database
-                    this.id = rs.getString("nid");
+                    this.id = rs.getString("nim");
                     this.nama = rs.getString("nama");
                     this.tipe = rs.getString("tipe");
                     this.status = rs.getString("status");

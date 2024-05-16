@@ -10,38 +10,38 @@ package kampus;
  */
 public class KaryawanTest {
     public static void main(String[] args) {
-        Karyawan pelajar = new Karyawan();
+        Karyawan karyawan = new Karyawan();
         
         // test TAMBAH
-        pelajar.nim = "222";
-        pelajar.nama = "GUNAWAN";
-        pelajar.alamat = "JALAN ABC";
-        if(pelajar.tambah()) {
+        karyawan.nim = "222";
+        karyawan.nama = "GUNAWAN";
+        karyawan.alamat = "JALAN ABC";
+        if(karyawan.tambah()) {
             System.out.println("TAMBAH OK");
         } else {
-            System.out.println(pelajar.getErrMsg());
+            System.out.println(karyawan.getErrMsg());
         }
         
         // test BACA
-        pelajar.baca("222");
-        if(!pelajar.nim.isEmpty()) {
+        karyawan.baca("222");
+        if(!karyawan.nim.isEmpty()) {
             System.out.println("BACA OK");
-            System.out.println(pelajar.nim+" "+pelajar.nama+" "+pelajar.status);
+            System.out.println(karyawan.nim+" "+karyawan.nama+" "+karyawan.status);
             System.out.println("Rekalkulasi");
-            pelajar.rekalkulasiIpk();
-            pelajar.rekalkulasiScore();
-            System.out.println("Score " + pelajar.getScore());
+            karyawan.rekalkulasiIpk();
+            karyawan.rekalkulasiScore();
+            System.out.println("Score " + karyawan.getScore());
         } else {
             System.out.println("BACA GAGAL");
         }
         
         // test UPDATE
-        pelajar.nama = "GUNAWAN UTOMO";
-        pelajar.alamat = "JALAN LEUWIPANJANG";
-        if(pelajar.update()) {
+        karyawan.nama = "GUNAWAN UTOMO";
+        karyawan.alamat = "JALAN LEUWIPANJANG";
+        if(karyawan.update()) {
             System.out.println("UPDATE OK");
         } else {
-            System.out.println(pelajar.getErrMsg());
+            System.out.println(karyawan.getErrMsg());
         }
     }
 }
