@@ -1,13 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package kampus;
 
-/**
- *
- * @author En Tay
- */
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+// class Mahasiswa kelas karyawan, turunan dari class Mahasiswa
 public class Karyawan extends Mahasiswa {
     
     private int score;
@@ -21,7 +17,29 @@ public class Karyawan extends Mahasiswa {
     }
     
     public void rekalkulasiIpk() {
-        //fdlksjflskdjlfksjlkj
+        // perbedaan rumus perhitungan Ipk untuk kelas Karyawan
+        this.ipk = Math.random() * 3 + 1; 
+        
+        Connection connection = null;
+        try {
+            connection = DatabaseTest.connect();
+
+            if (!connection.isClosed()) {
+                // prepare select statement
+                String sql = "UPDATE mahasiswa SET ipk=?"
+                        + "WHERE nim=?";
+                PreparedStatement st = connection.prepareStatement(sql);
+                st.setDouble(1, this.ipk);
+                st.setString(2, this.nim);
+
+                st.executeUpdate();
+                connection.close();
+            }
+            connection.close();
+            this.errMsg = "Koneksi ke database gagal";
+        } catch (Exception ex) {
+            this.errMsg = ex.toString();
+        }
     }
     
 }

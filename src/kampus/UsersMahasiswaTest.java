@@ -18,15 +18,14 @@ public class UsersMahasiswaTest {
             System.out.println(um.getErrMsg());
         }
         System.out.println();
+        
+        um.setPassword("123");
 
         // test BACA
-        um.baca("111");
-        if (!um.id.isEmpty()) {
-            System.out.println("BACA OK");
-            System.out.println(um.id+" "+um.getNama());
+        if(um.login("111", "123")) {
+            System.out.println("LOGIN BERHASIL");
         } else {
-            System.out.println("BACA GAGAL");
-            System.out.println(um.getErrMsg());
+            System.out.println("LOGIN GAGAL");
         }
         System.out.println();
 

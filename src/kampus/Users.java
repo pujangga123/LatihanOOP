@@ -112,7 +112,7 @@ public abstract class Users {
 
                 // 2. sesuaikan parameter
                 st.setString(1, id);
-                st.setString(1, passwd);
+                st.setString(2, passwd);
 
                 rs = st.executeQuery();
 

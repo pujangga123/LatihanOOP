@@ -13,7 +13,7 @@ public class Mahasiswa {
     public String status;
     public String usersId;
     protected Double ipk;
-    private String errMsg = "";
+    protected String errMsg = "";
 
     public Mahasiswa() {
         this.nim = "";
