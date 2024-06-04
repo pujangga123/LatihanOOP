@@ -12,8 +12,6 @@ public class KaryawanTest {
     public static void main(String[] args) {
         Karyawan karyawan = new Karyawan();
         
-        Users users = new Users();
-        
         // test TAMBAH
         karyawan.nim = "222";
         karyawan.nama = "GUNAWAN";
