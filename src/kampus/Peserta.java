@@ -25,11 +25,11 @@ public class Peserta {
     protected String errMsg = "";
 
     public Peserta() {
-        this.kelasKode = "";
-        this.nim = "";
-        this.kehadiran = 0.0;
-        this.tugas = 0.0;
-        this.ujian = 0.0;
+        kelasKode = "";
+        nim = "";
+        kehadiran = 0.0;
+        tugas = 0.0;
+        ujian = 0.0;
     }
 
     public boolean baca(String kelasKode, String nim) {

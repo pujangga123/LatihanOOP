@@ -12,10 +12,13 @@ public class KaryawanTest {
     public static void main(String[] args) {
         Karyawan karyawan = new Karyawan();
         
+        Users users = new Users();
+        
         // test TAMBAH
         karyawan.nim = "222";
         karyawan.nama = "GUNAWAN";
         karyawan.alamat = "JALAN ABC";
+        karyawan.ipk = 3.0;
         if(karyawan.tambah()) {
             System.out.println("TAMBAH OK");
         } else {
