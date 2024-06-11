@@ -86,6 +86,18 @@ public class Kelas {
             return false; // menandakan kalau operasi GAGAL
         }
     }
+    
+    public boolean pesertaTambah(String nim) {
+        Peserta peserta = new Peserta();
+        peserta.kelasKode = kode;
+        peserta.nim = nim;
+        if(peserta.tambah()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
 
     public boolean update() {
         Connection connection = null;
@@ -143,6 +155,10 @@ public class Kelas {
         } catch (Exception ex) {
             return null;
         }
+    }
+    
+    public List<Peserta> getListPeserta() {
+        return Peserta.getList(kode);
     }
 
     public String getErrMsg() {

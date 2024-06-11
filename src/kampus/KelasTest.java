@@ -1,5 +1,7 @@
 package kampus;
 
+import java.util.List;
+
 public class KelasTest {
 
     public static void main(String[] args) {
@@ -24,6 +26,9 @@ public class KelasTest {
             System.out.println("BACA GAGAL");
             System.out.println(kelas.getErrMsg());
         }
+        
+        // menambahkan peserta lewat Kelas
+        kelas.pesertaTambah("1111");
 
         // test UPDATE
         kelas.status = "SELESAI";
@@ -33,5 +38,19 @@ public class KelasTest {
             System.out.println("UPDATE GAGAL");
             System.out.println(kelas.getErrMsg());
         }
+        
+        // mencetak daftar kelas
+        List<Kelas> daftar = Kelas.getList();
+        for(Kelas row:daftar) {
+            System.out.println(row.kode);
+        }
+        
+        List<Peserta> pesertaDaftar = kelas.getListPeserta();
+        for(Kelas row:pesertaDaftar) {
+            System.out.println(row.nim);
+        }
+        
+        
+        
     }
 }
