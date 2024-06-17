@@ -6,7 +6,7 @@ public class DosenTest {
         Dosen dosen = new Dosen();
 
         // test TAMBAH
-        dosen.nid = "111";
+        dosen.nid = "1111";
         dosen.nama = "HENDRA";
         dosen.status = "AKTIF";
         if (dosen.tambah()) {
@@ -17,7 +17,7 @@ public class DosenTest {
         }
 
         // test BACA
-        dosen.baca("111");
+        dosen.baca("1111");
         if (!dosen.nid.isEmpty()) {
             System.out.println("BACA OK");
         } else {
