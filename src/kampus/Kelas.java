@@ -115,6 +115,21 @@ public class Kelas {
         }
     }
     
+    public boolean pesertaTambah(String nim) {
+        Peserta peserta = new Peserta();
+        peserta.kelasKode = kode;
+        peserta.nim = nim;
+        if(peserta.tambah()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public List<Peserta> getListPeserta() {
+        return Peserta.getList(kode);
+    }
+    
     public static List<Kelas> getList() {
         List<Kelas> result = new ArrayList<>();
         

@@ -41,10 +41,10 @@ public class Peserta {
 
             if (!connection.isClosed()) {
                 // 1. sesuaikan string SQL
-                String sql = "SELECT kelasKode, nim, nama, kehadiran, tugas, ujian"
+                String sql = "SELECT kelasKode, peserta.nim, nama, kehadiran, tugas, ujian"
                         + " FROM peserta "
                         + " inner join mahasiswa on peserta.nim=mahasiswa.nim"
-                        + " where kelasKode=? and nim=?";
+                        + " where kelasKode=? and peserta.nim=?";
                 PreparedStatement st = connection.prepareStatement(sql);
 
                 // 2. sesuaikan parameter
@@ -156,11 +156,9 @@ public class Peserta {
 
                 while (rs.next()) {
                     Peserta obj = new Peserta();
-                    obj.kelasKode = rs.getString("kelasKode");
-                    obj.nim = rs.getString("nim");
-                    obj.kehadiran = rs.getDouble("kehadiran");
-                    obj.tugas = rs.getDouble("tugas");
-                    obj.ujian = rs.getDouble("ujian");
+                    if(!obj.baca(rs.getString("kelasKode"), rs.getString("nim"))) {
+                        System.out.println(obj.getErrMsg());
+                    }
                     result.add(obj);
                 }
 
