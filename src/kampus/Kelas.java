@@ -15,6 +15,7 @@ import java.util.List;
  * @author En Tay
  */
 public class Kelas {
+
     public String kode;
     public String dosenNid;
     public String status;
@@ -115,9 +116,51 @@ public class Kelas {
         }
     }
     
+    public boolean pesertaTambah(String nim) {
+        Peserta peserta = new Peserta();
+        peserta.kelasKode = kode;
+        peserta.nim = nim;
+        if(peserta.tambah()) {
+            return true;
+        } else {
+            errMsg = peserta.getErrMsg();
+            return false;
+        }
+    }
+
+    public List<Peserta> getListPeserta() {
+        List<Peserta> result = new ArrayList<>();
+
+        Connection connection = null;
+        ResultSet rs = null;
+
+        try {
+            connection = DatabaseTest.connect();
+
+            if (!connection.isClosed()) {
+                // prepare select statement
+                String sql = "SELECT * FROM peserta where kelasKode=?";
+                PreparedStatement st = connection.prepareStatement(sql);
+                st.setString(1, kode);
+                rs = st.executeQuery();
+
+                while (rs.next()) {
+                    Peserta p = new Peserta();
+                    if (p.baca(kode, rs.getString("nim"))) {
+                        result.add(p);
+                    }
+                }
+
+            }
+            return result;
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+
     public static List<Kelas> getList() {
         List<Kelas> result = new ArrayList<>();
-        
+
         Connection connection = null;
         ResultSet rs = null;
 
@@ -134,10 +177,10 @@ public class Kelas {
                     Kelas k = new Kelas();
                     k.kode = rs.getString("kode");
                     k.dosenNid = rs.getString("dosenNid");
-                    k.status  = rs.getString("status");
+                    k.status = rs.getString("status");
                     result.add(k);
                 }
-                
+
             }
             return result;
         } catch (Exception ex) {
