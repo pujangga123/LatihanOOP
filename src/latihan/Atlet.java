@@ -1,6 +1,8 @@
 package latihan;
 
 public class Atlet extends Manusia {
+    
+    protected String club;
 
     public Atlet(String nama) {
         super(nama);

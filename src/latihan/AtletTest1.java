@@ -9,6 +9,8 @@ public class AtletTest1 {
         a.berlari();
         a.makan(4);
         
+        a.club = "FF";
+        
         a.info();
         
     }
