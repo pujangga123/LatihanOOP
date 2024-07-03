@@ -4,6 +4,8 @@
  */
 package kampus;
 
+import java.util.List;
+
 /**
  *
  * @author Lenovo
@@ -40,6 +42,14 @@ public class MahasiswaTest {
             System.out.println("UPDATE OK");
         } else {
             System.out.println(mahasiswa.getErrMsg());
+        }
+        
+        // LIST
+        System.out.println();
+        System.out.println("Menampilkan LIST:");
+        List<Mahasiswa> daftar = Mahasiswa.getList();
+        for(Mahasiswa baris: daftar)  {
+            System.out.println(baris.nim+" "+baris.nama);
         }
     }
 }
