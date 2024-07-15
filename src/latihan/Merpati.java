@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package latihan;
 
-/**
- *
- * @author En Tay
- */
-public class Merpati {
+public class Merpati extends Burung {
+    
+    public void manuver() {
+        
+    }
     
 }
