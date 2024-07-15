@@ -156,11 +156,7 @@ public class Peserta {
 
                 while (rs.next()) {
                     Peserta obj = new Peserta();
-                    obj.kelasKode = rs.getString("kelasKode");
-                    obj.nim = rs.getString("nim");
-                    obj.kehadiran = rs.getDouble("kehadiran");
-                    obj.tugas = rs.getDouble("tugas");
-                    obj.ujian = rs.getDouble("ujian");
+                    obj.baca(kelasKode,rs.getString("nim"));
                     result.add(obj);
                 }
 
